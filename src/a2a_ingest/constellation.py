@@ -16,7 +16,7 @@ CORRUPTION_MARKER = "[CORRUPTED/MUTATED]"
 @dataclass(frozen=True)
 class ConstellationRecord:
     integrity_hash: str
-    encrypted_blob: Dict[str, Any]
+    record_payload: Dict[str, Any]
     signature: str
     public_key: Optional[str]
     status: str
