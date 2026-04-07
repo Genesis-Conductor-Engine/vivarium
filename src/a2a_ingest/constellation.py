@@ -48,16 +48,50 @@ class ConstellationStore:
         encrypted_blob = self._dht.get(integrity_hash)
         if not encrypted_blob:
             return None
-        body = self._body_from_payload(encrypted_blob["body"])
-        recalculated_hash = self.compute_integrity_hash(body)
+        if not isinstance(encrypted_blob, dict):
+            return ConstellationRecord(
+                integrity_hash=integrity_hash,
+                record_payload={},
+                signature="",
+                public_key=None,
+                status=CORRUPTION_MARKER,
+                recalculated_hash=None,
+            )
+
+        body_payload = encrypted_blob.get("body")
+        signature = encrypted_blob.get("signature")
+        public_key = encrypted_blob.get("public_key")
+        if not isinstance(body_payload, dict) or not isinstance(signature, str):
+            return ConstellationRecord(
+                integrity_hash=integrity_hash,
+                record_payload=encrypted_blob,
+                signature=signature if isinstance(signature, str) else "",
+                public_key=public_key if isinstance(public_key, str) or public_key is None else None,
+                status=CORRUPTION_MARKER,
+                recalculated_hash=None,
+            )
+
+        try:
+            body = self._body_from_payload(body_payload)
+            recalculated_hash = self.compute_integrity_hash(body)
+        except (KeyError, TypeError, ValueError):
+            return ConstellationRecord(
+                integrity_hash=integrity_hash,
+                record_payload=encrypted_blob,
+                signature=signature,
+                public_key=public_key if isinstance(public_key, str) or public_key is None else None,
+                status=CORRUPTION_MARKER,
+                recalculated_hash=None,
+            )
+
         status = "ANCHOR_OK"
         if recalculated_hash != integrity_hash:
             status = CORRUPTION_MARKER
         return ConstellationRecord(
             integrity_hash=integrity_hash,
-            encrypted_blob=encrypted_blob,
-            signature=encrypted_blob["signature"],
-            public_key=encrypted_blob.get("public_key"),
+            record_payload=encrypted_blob,
+            signature=signature,
+            public_key=public_key if isinstance(public_key, str) or public_key is None else None,
             status=status,
             recalculated_hash=recalculated_hash,
         )
