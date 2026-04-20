@@ -1,0 +1,12 @@
+# Vivarium — Agent Simulation Environment
+
+> Simulation environment for Genesis Conductor agents.
+
+## Purpose
+- Agent testing and simulation
+- Behavior verification
+- Multi-agent coordination testing
+
+## Creator
+Igor Holt — AI Architect
+Genesis Conductor Engine
