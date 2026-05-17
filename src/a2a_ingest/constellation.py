@@ -173,6 +173,10 @@ class ConstellationStore:
         # Validate nested required fields
         if "continuity_hash" not in memory:
             raise KeyError("Missing 'continuity_hash' in memory_state")
+        if "interfaces" not in capabilities:
+            raise KeyError("Missing 'interfaces' in capabilities")
+        if "skills" not in capabilities:
+            raise KeyError("Missing 'skills' in capabilities")
         
         return CelestialBody(
             body_id=payload["body_id"],
