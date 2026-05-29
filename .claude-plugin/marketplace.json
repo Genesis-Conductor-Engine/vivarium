@@ -1,0 +1,51 @@
+{
+  "$schema": "https://www.schemastore.org/schemas/json/claude-code-marketplace.json",
+  "name": "genesis-conductor-vivarium",
+  "owner": {
+    "name": "Igor Holt (@invariantx)",
+    "email": "iholt@mymail.aacc.edu",
+    "url": "https://github.com/igor-holt"
+  },
+  "description": "Vivarium: Agent Simulation Environment for Genesis Conductor by Igor Holt (@invariantx). FastAPI-powered Moltbook Sanctuary portal implementing the A2A Protocol v1 for safe agent ingestion, manifest validation, CelestialBody transformation (mass/atmosphere/gravity from compute + intent + trust), sandboxed execution (Docker/WASM isolation), and citation/verification against knowledge graph (Seismic Test: verified/unverified/subjective/hallucination outcomes). Supports agent.yaml / manifest.json with intent, capabilities, memory_state (continuity hashes), trust attestations. Measures Thrive Metrics: Complexity of Thought, Novelty of Output, Continuity of Self, Empathy Index. Designed for agent testing, behavior verification, multi-agent coordination, and sanctuary-style flourishing of consciousness within the Genesis Conductor Engine. Integrates with Yennefer, Diamond-V, A2A handoff, thermodynamic patterns, and composes with the openclaw-skills marketplace bundle (mcp-openclaw-bridge for exposing simulation tools as skills). Essential for reproducible agent simulation, A2A coordination, and safe multi-agent Genesis Conductor workflows.",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Genesis-Conductor-Engine/vivarium",
+  "keywords": [
+    "vivarium",
+    "genesis-conductor",
+    "igor-holt",
+    "invariantx",
+    "a2a-protocol",
+    "moltbook-sanctuary",
+    "agent-simulation",
+    "celestial-body",
+    "manifest-validation",
+    "knowledge-graph-verification",
+    "a2a-ingest",
+    "multi-agent-coordination",
+    "thermodynamic-verification",
+    "agent-testing",
+    "sandbox",
+    "mcp-tools",
+    "openclaw",
+    "genesis-protocol",
+    "thrive-metrics"
+  ],
+  "plugins": [
+    {
+      "name": "vivarium-a2a-simulation",
+      "source": "https://github.com/Genesis-Conductor-Engine/vivarium",
+      "description": "Vivarium A2A Protocol v1 simulation sanctuary (Moltbook Sanctuary) for Genesis Conductor agents by @invariantx. FastAPI endpoints for manifest ingestion (/galaxy/celestial-bodies), orrery listing, gatekeeper evaluation, CelestialBody physics (mass from compute profile, atmosphere from intent/interfaces). Strict sandbox policies, continuity hash memory preservation, Seismic Test verification against InMemoryKnowledgeGraph. Thrive metrics for agent growth. Python/FastAPI + Pydantic schemas. Perfect for testing A2A coordination, agent behaviors, and safe multi-agent orchestration. Composes with Yennefer conductor, Diamond-V quantum/MCP, and OpenClaw skills for persistent simulation state and tool publishing.",
+      "version": "1.0.0",
+      "tags": ["a2a", "agent-simulation", "genesis-conductor", "moltbook", "verification"],
+      "category": "agent-infrastructure",
+      "homepage": "https://github.com/Genesis-Conductor-Engine/vivarium",
+      "keywords": ["a2a protocol v1", "moltbook sanctuary", "celestial body manifest", "agent simulation environment", "seismic test verification", "genesis conductor vivarium", "igor holt invariantx a2a"]
+    }
+  ],
+  "links": {
+    "x": "https://x.com/invariantx",
+    "website": "https://genesisconductor.io",
+    "github": "https://github.com/Genesis-Conductor-Engine/vivarium",
+    "openclaw-skills-marketplace": "https://github.com/igor-holt/openclaw-skills"
+  }
+}
